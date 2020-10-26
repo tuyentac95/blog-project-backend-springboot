@@ -30,6 +30,9 @@ dependencies {
 	runtime group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.2'
 	runtime group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.2'
 
+	implementation 'org.mapstruct:mapstruct:1.4.1.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.1.Final'
+
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'mysql:mysql-connector-java'
 	annotationProcessor 'org.projectlombok:lombok'
