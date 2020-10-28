@@ -38,6 +38,8 @@ public class CommentService {
         Post post = postRepository.findById(commentsDto.getPostId())
                 .orElseThrow(() -> new BlogException("Post Not Found: " + commentsDto.getPostId()));
 
+        System.out.println("Current User: " + authService.getCurrentUser().getUsername());
+
         Comment comment = commentMapper.map(commentsDto, post, authService.getCurrentUser());
         commentRepository.save(comment);
 
