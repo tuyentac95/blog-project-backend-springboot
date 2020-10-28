@@ -3,7 +3,6 @@ package com.codegym.security;
 import com.codegym.exception.BlogException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
@@ -24,8 +23,8 @@ public class JwtProvider {
 
     private KeyStore keyStore;
 
-    @Value("$jwt.expiration.time")
-    private Long jwtExpirationInMillis;
+//    @Value("$jwt.expiration.time")
+    private Long jwtExpirationInMillis = 90000L;
 
     @PostConstruct
     public void init(){

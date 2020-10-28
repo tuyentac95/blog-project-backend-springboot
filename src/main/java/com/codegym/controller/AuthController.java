@@ -8,6 +8,7 @@ import com.codegym.service.AuthService;
 import com.codegym.service.RefreshTokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,8 +35,9 @@ public class AuthController {
         return new ResponseEntity<>("Account Activated Successfully", HttpStatus.OK);
     }
 
+//    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     @PostMapping("/login")
-    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest){
+    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
         return authService.login(loginRequest);
     }
 

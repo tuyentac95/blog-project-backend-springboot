@@ -37,10 +37,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers(HttpMethod.GET, "api/appblog")
                 .permitAll()
+                .antMatchers(HttpMethod.GET,
+                        "/v2/api-docs",
+                        "/configuration/ui",
+                        "/swagger-resources/**",
+                        "/configuration/security",
+                        "/swagger-ui.html",
+                        "/webjars/**",
+                        "/swagger.json",
+                        "/favicon.ico")
+                .permitAll()
                 .anyRequest().authenticated();
 
         httpSecurity.addFilterBefore(authenticationFilter,
                 UsernamePasswordAuthenticationFilter.class);
+
+        httpSecurity.cors();
     }
 
     @Autowired
